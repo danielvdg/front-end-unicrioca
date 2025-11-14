@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header></header>
+    <div class="todo-container">
+        <h1>📝 Minha Lista de Tarefas</h1>
+        
+        <div class="input-container">
+            <input 
+                type="text" 
+                id="todo-input" 
+                placeholder="Adicione uma nova tarefa..."
+                autocomplete="off"
+            >
+            <button id="add-btn">Adicionar</button>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="active">Ativas</button>
+            <button class="filter-btn" data-filter="completed">Concluídas</button>
+        </div>
+
+        <ul id="todo-list"></ul>
+
+        <div class="task-counter">
+            <span id="task-count">0 tarefas</span>
+        </div>
+    </div>
+
+    <script src="../header/loadHeader.js"></script>
+    <script src="../header/header.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
