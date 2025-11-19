@@ -3,6 +3,7 @@ from entities import User
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.responses import RedirectResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi.middleware.cors import CORSMiddleware
 from schemas import (
     AuthResponse,
     ErrorResponse,
@@ -29,6 +30,20 @@ from usecases import (
 
 app = FastAPI(title="Todo List API", version="2.0.0")
 http_bearer = HTTPBearer()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:5500",  # Se estiver usando Live Server do VSCode
+        "http://localhost:5500",
+        "http://127.0.0.1:3000",  # Outras portas comuns de dev
+        "http://localhost:3000",
+        # Adicione aqui a origem exata do seu frontend
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos os métodos (GET, POST, OPTIONS, etc)
+    allow_headers=["*"]
+)
 
 
 def get_db():

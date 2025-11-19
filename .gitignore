@@ -322,3 +322,4 @@ env/
 # database/
 *.log.*
 .idea/
+todo-list/server/.tool-versions
